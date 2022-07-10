@@ -53,11 +53,14 @@ function buildMetadata(sample) {
   });
 }
 
-// Challenge 1 - Bar Chart //
+// Bar Chart //
+
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
+
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
+
     // 3. Create a variable that holds the samples array. 
     var samples = data.samples;
 
@@ -91,10 +94,20 @@ function buildCharts(sample) {
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: "Top 10 Bacteria Cultures Found",
-      margin: { t: 30, l: 150 }
+      xaxis: {title: "Sample Values"},
+      yaxis: {title: "OTU ID"},
+      margin: {
+        l: 100,
+        r: 100,
+        t: 100,
+        b: 100
+      }
     };
 
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
   });
 }
+
+// //
+
